@@ -55,4 +55,13 @@ def DeleteEvents(request):
     choice=request.POST.get("CRUDchoice")
     if(choice):
         return redirect('/task2/{}'.format(choice))
-    return render(request,"eve.html")
+    eventList=list()
+    for e in EventDet.objects.all():
+        eventList.append(model_to_dict(e))
+    
+    delIndex=request.POST.get("DelChoice")
+    for ind,n in enumerate(eventList):
+        if(ind==int(delIndex)):
+            EventDet.objects.filter(name=n['name']).delete()
+            return render(request,"eve.html",{'delete':1,'eventList':enumerate(eventList),'deleted':1})
+    return render(request,"eve.html",{'delete':1,'eventList':enumerate(eventList)})

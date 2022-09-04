@@ -32,8 +32,24 @@
 {% endif %}
 {% endif %}
 
+{% if delete %}
+<form method="post" id="delete">
+    {% csrf_token %}
+    <label for="DelChoice">Choose What To Delete :-</label><br>
+    <select id="CRUD" name="DelChoice">
+        {% for ind,e in eventList %}
+        <option value={{ind}}>{{e.name}}-{{e.date}}--{{e.complete}}</option>
+        {% endfor %}
+    </select><br><br>
+    <input type="submit" name="submit3" form="delete" value="Delete">
+</form>
+{% if deleted %}
+<p>Successfully Deleted</p>
+{% endif %}
+{% endif %}
+
 {% if view %}
-<table border="3" style="padding: 5px;">
+<table border="3" style="padding: 5px;text-align: center;">
     <tr>
         <td style="padding: 5px;"></td>
         <td style="padding: 5px;">Event Name</td>

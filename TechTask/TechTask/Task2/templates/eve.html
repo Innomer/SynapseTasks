@@ -7,6 +7,7 @@
     <option value="2">Update an Event</option>
     <option value="3">View all Events</option>
     <option value="4">Delete an Event</option>
+    <option value="5">Delete all Completed Events</option>
     </select><br><br>
     <input type="submit" name="submit">
 </form>
@@ -67,4 +68,8 @@
     </tr>
     {% endfor %}
 </table>
+{% endif %}
+
+{% if delAll %}
+<p style="font-size:large;color:red;">DELETED ALL COMPLETE EVENTS.</p>
 {% endif %}

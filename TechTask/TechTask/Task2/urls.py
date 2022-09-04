@@ -7,4 +7,5 @@ urlpatterns=[
     path('2',views.UpdateEvent),
     path('3',views.ViewEvents),
     path('4',views.DeleteEvents),
+    path('5',views.DeleteAll),
 ]

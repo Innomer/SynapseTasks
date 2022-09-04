@@ -1,0 +1,11 @@
+{% if alldogs %}
+<h2>The Breeds are :- </h2>
+<p>{{alldogs}}</p>
+{% else %}
+{% if sub %}
+<h2>The Sub Breeds are :- </h2>
+<p>{{sub}}</p>
+{% else %}
+<p style="color: red;">Some Error has occured.Pls Check if you have entered Breed name in URL</p>
+{% endif %}
+{% endif %}

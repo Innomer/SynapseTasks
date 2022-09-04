@@ -73,3 +73,29 @@
 {% if delAll %}
 <p style="font-size:large;color:red;">DELETED ALL COMPLETE EVENTS.</p>
 {% endif %}
+
+{% if update %}
+<br><br>
+<form method="post" id="update">
+    {% csrf_token %}
+    <label for="UpdChoice">Choose What To Update :-</label><br>
+    <select id="CRUD" name="UpdChoice">
+        {% for ind,e in eventList %}
+        <option value={{ind}}>{{e.name}}-{{e.date}}--{{e.complete}}</option>
+        {% endfor %}
+    </select><br><br>
+    <label for="name">Name of Event:</label><br>
+    <input type="text" placeholder="Name" name="name" id="name"><br><br>
+    <label for="date">Date of Event:</label><br>
+    <input type="date" placeholder="Date" name="date" id="date"><br><br>
+    <label for="des">Description:-</label><br>
+    <textarea name="des" id="des" placeholder="Description" maxlength="1000" cols="20" rows="5"></textarea><br><br>
+    <label for="com">Event Completed:</label>
+    <input type="checkbox" name="com" id="com"><br><br>
+    <input type="reset" name="reset4" form="update">
+    <input type="submit" name="submit4" form="update" value="Update">
+</form>
+{% if updated %}
+<p style="font-size:medium;color:black;">Updated Event</p>
+{% endif %}
+{% endif %}

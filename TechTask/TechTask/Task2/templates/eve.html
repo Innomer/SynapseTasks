@@ -1,13 +1,13 @@
 <form action="." method="post">
     {% csrf_token %}
     <label for="CRUDchoice">Choose What you want to do from list :-</label><br>
-    <input list="CRUD" placeholder="Choose" name="CRUDchoice" id="CRUDchoice">
-    <datalist id="CRUD">
+    <!-- <input list="CRUD" placeholder="Choose" name="CRUDchoice" id="CRUDchoice"> -->
+    <select id="CRUD" name="CRUDchoice">
     <option value="1">Create an Event</option>
     <option value="2">Update an Event</option>
     <option value="3">View all Events</option>
     <option value="4">Delete an Event</option>
-    </datalist><br><br>
+    </select><br><br>
     <input type="submit" name="submit">
 </form>
 
@@ -30,5 +30,25 @@
 {% if created %}
 <p>Event Created Successfully</p>
 {% endif %}
-{% else %}
+{% endif %}
+
+{% if view %}
+<table border="3" style="padding: 5px;">
+    <tr>
+        <td style="padding: 5px;"></td>
+        <td style="padding: 5px;">Event Name</td>
+        <td style="padding: 5px;">Date</td>
+        <td style="padding: 5px;">Description</td>
+        <td style="padding: 5px;">Completed</td>
+    </tr>
+    {% for i,e in eventList %}
+    <tr>
+        <td style="padding: 5px;">{{i}}</td>
+        <td style="padding: 5px;">{{e.name}}</td>
+        <td style="padding: 5px;">{{e.date}}</td>
+        <td style="padding: 5px;">{{e.description}}</td>
+        <td style="padding: 5px;">{{e.complete}}</td>
+    </tr>
+    {% endfor %}
+</table>
 {% endif %}

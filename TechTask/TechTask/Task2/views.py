@@ -1,7 +1,9 @@
 from http.client import HTTPResponse
+from operator import mod
 from sqlite3 import complete_statement
 from django.shortcuts import render,redirect
 from Task2.models import EventDet
+from django.forms.models import model_to_dict
 # Create your views here.
 
 def Choose(request):
@@ -44,7 +46,10 @@ def ViewEvents(request):
     choice=request.POST.get("CRUDchoice")
     if(choice):
         return redirect('/task2/{}'.format(choice))
-    return render(request,"eve.html")
+    eventList=list()
+    for e in EventDet.objects.all():
+        eventList.append(model_to_dict(e))
+    return render(request,"eve.html",{'view':1,'eventList':enumerate(eventList)})
 
 def DeleteEvents(request):
     choice=request.POST.get("CRUDchoice")

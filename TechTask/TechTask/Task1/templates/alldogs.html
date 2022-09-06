@@ -1,11 +1,28 @@
-{% if alldogs %}
-<h2>The Breeds are :- </h2>
-<p>{{alldogs}}</p>
-{% else %}
-{% if sub %}
-<h2>The Sub Breeds are :- </h2>
-<p>{{sub}}</p>
-{% else %}
-<p style="color: red;">Some Error has occured.Pls Check if you have entered Breed name in URL</p>
-{% endif %}
-{% endif %}
+{% load static %}
+<html>
+    <head>
+        <title>Dogs</title>
+    </head>
+    <body>
+        {% if alldogs %}
+        <h2>Breeds</h2>
+        <ol style="flex-wrap: wrap;
+        display: flex;display: flex;height: 100vh;">
+            {% for j in alldogs %}
+            <li style="flex: 1 0 25%;">{{j}}</li>
+            {% endfor %}
+        </ol>>
+        {% else %}
+        {% if sub %}
+        <h2>Sub Breeds</h2>
+        <ol>
+            {% for j in sub %}
+            <li>{{j}}</li>
+            {% endfor %}
+        </ol>>
+        {% else %}
+        <p style="color: red;">Some Error has occured.Pls Check if you have entered Breed name in URL</p>
+        {% endif %}
+        {% endif %}
+    </body>
+</html>

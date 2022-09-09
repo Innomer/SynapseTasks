@@ -79,6 +79,8 @@
   {
     background-color: #f1f1f1d2;
     background: url("/static/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   #mainDiv{

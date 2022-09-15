@@ -16,6 +16,8 @@ def subdog(request,breed):
     subBreeds=requests.get('https://dog.ceo/api/breed/{}/list'.format(breed))
     subBreeds=subBreeds.json()
     print(subBreeds["message"])
+    if(subBreeds["message"]==[]):
+        subBreeds["message"]="No Sub Breeds"
     return render(request,"alldogs.html",{'sub':subBreeds["message"]})
 
 def randomBreed(request):

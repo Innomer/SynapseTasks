@@ -1,2 +1,2 @@
 # SynapseTasks
-Contains all files regarding Synapse Task
+Contains Backend Django Tasks for Synapse

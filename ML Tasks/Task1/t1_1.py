@@ -1,5 +1,3 @@
-from operator import truediv
-
 
 modern_family = ['CLaiRe_DunPhY', 'PHiL_dUnpHY', 'GLoRiA_PriTCheTt', 'CaMErOn_TuCKEr',
 'StELLa']

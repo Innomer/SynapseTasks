@@ -1,2 +1,2 @@
 # SynapseTasks
-Contains all files regarding Synapse Task
+Contains ML Tasks for Synapse
